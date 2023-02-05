@@ -86,7 +86,7 @@ Distributed under the MIT License. See [LICENSE](https://github.com/rafaelsc/Min
 
 ## Authors
 
-* **Rafael Silveira Cordeiro** - *FullStack Software Engineer with 25+ years of experience in software development.* - [Rafael Silveira Cordeiro](https://github.com/rafaelsc/) - *Code, Samples, Documentation*
+* **[Rafael Silveira Cordeiro](https://github.com/rafaelsc/)** - *FullStack Software Engineer with 25+ years of experience in software development.* - *Code, Samples, Documentation*
 
 ## Acknowledgements
 
