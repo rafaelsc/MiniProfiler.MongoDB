@@ -75,10 +75,9 @@ var dbClient = new MongoClient(mongoClientSettings);
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Follow Miniprofiiler [documentation](https://miniprofiler.com/dotnet/) to know how to use Miniprofiiler. Or follow our _samples_.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
-
+_For examples, please refer to the [samples folder](https://github.com/rafaelsc/MiniProfiler.MongoDB/tree/main/samples)_
 
 ## License
 
