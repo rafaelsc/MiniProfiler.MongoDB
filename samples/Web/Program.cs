@@ -16,6 +16,7 @@ builder.Services.AddMongoClientWithProfiling(builder.Configuration.GetConnection
 
                     options.IgnoredPaths.Add("/lib");
                     options.IgnoredPaths.Add("/css");
+                    options.IgnoredPaths.Add("Web.styles.css");
                     options.IgnoredPaths.Add("/js");
                     options.IgnoredPaths.Add("favicon.ico");
                 });

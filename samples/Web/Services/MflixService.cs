@@ -17,7 +17,7 @@ namespace Web.Services
         public IEnumerable<Movie> ListAll()
         {
             var result = mongoCollection.Find(movie => true);
-            return result.ToList();
+            return result.ToEnumerable();
         }
 
         public async IAsyncEnumerable<Movie> ListAllAsync()

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Web.Models;
 using Web.Services;
 
@@ -10,7 +9,8 @@ namespace Web.Pages
         private readonly ILogger<IndexModel> _logger;
         private readonly MflixService _mflixService;
 
-        public IList<Movie> Movies = new List<Movie>();
+        public IEnumerable<Movie> Movies;
+        public IAsyncEnumerable<Movie> MoviesAsync;
 
         public IndexModel(ILogger<IndexModel> logger, MflixService mflixService)
         {
@@ -20,7 +20,8 @@ namespace Web.Pages
 
         public void OnGet()
         {
-            this.Movies = this._mflixService.ListAll().ToList();
+            this.Movies = this._mflixService.ListAll();
+            this.MoviesAsync = this._mflixService.ListAllAsync();
         }
     }
 }
