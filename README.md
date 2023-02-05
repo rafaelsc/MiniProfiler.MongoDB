@@ -9,12 +9,6 @@
     Know what queries are been executed and what needs investigation and improvements in our MongoDB application.
     <br/>
     <br/>
-    <a href="https://github.com/rafaelsc/MiniProfiler.MongoDB"><strong>Explore the docs »</strong></a>
-    <br/>
-    <br/>
-    <a href="https://github.com/rafaelsc/MiniProfiler.MongoDB/issues">Report Bug</a>
-    .
-    <a href="https://github.com/rafaelsc/MiniProfiler.MongoDB/issues">Request Feature</a>
   </p>
 </p>
 
@@ -57,10 +51,10 @@ Install, and set up your MongoClient with `MiniProfilerMongoDbEventSubscriber` a
 
 ### Prerequisites
 
-* Your project needs to be compatible with _.NET Standart 2.1_
-* Miniprofiller - https://github.com/MiniProfiler/dotnet
-* MongoDB Driver - https://github.com/mongodb/mongo-csharp-driver
-* MiniProfiler.MongoDB - _this project
+* Your project needs to be compatible with [_.NET Standard 2.1_](https://learn.microsoft.com/en-us/dotnet/standard/net-standard?tabs=net-standard-2-1)
+* [Miniprofiller](https://github.com/MiniProfiler/dotnet)
+* [MongoDB Driver](https://github.com/mongodb/mongo-csharp-driver)
+* [MiniProfiler.MongoDB - _this project_](#installation)
 
 Register `MiniProfilerMongoDbEventSubscriber` in your `MongoClient` instance.
 
