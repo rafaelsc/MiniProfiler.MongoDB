@@ -6,6 +6,9 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Reflection;
 
+// ReSharper disable UnusedMember.Local
+#pragma warning disable IDE0051 // Remove unused private members
+
 namespace MiniProfiler.MongoDB
 {
     public class MiniProfilerMongoDbEventSubscriber : IEventSubscriber
@@ -92,110 +95,6 @@ Response:
             }
         }
     }
-
-    //    [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Methods are called via reflection.")]
-    //    public class MiniProfilerSubscriber : IEventSubscriber
-    //    {
-    //        private readonly ConcurrentDictionary<int, CustomTiming> _commands = new ConcurrentDictionary<int, CustomTiming>();
-    //        private readonly IEventSubscriber _subscriber;
-
-    //        public MiniProfilerSubscriber()
-    //        {
-    //            _subscriber = new ReflectionEventSubscriber(this, bindingFlags: BindingFlags.Instance | BindingFlags.NonPublic);
-    //        }
-
-    //        public bool TryGetEventHandler<TEvent>(out Action<TEvent> handler)
-    //        {
-    //            var result = _subscriber.TryGetEventHandler(out handler);
-    //            return result;
-    //        }
-
-    //        private void Handle(CommandStartedEvent @event)
-    //        {
-    //            var t = MiniProfiler.Current.CustomTiming("mongodb", @event.Command.ToJson(), @event.CommandName);
-    //            _commands[@event.RequestId] = t;
-
-    //            //if (_commands.TryGetValue(@event.RequestId, out var t))
-    //            //{
-    //            //    t.CommandString += $"\n\nCommand:\n{@event.Command.ToJson()}";
-    //            //    t.ExecuteType = @event.CommandName;
-    //            //}
-    //            //else
-    //            //{
-    //            //    var tt = MiniProfiler.Current.CustomTiming("mongodb", @event.Command.ToJson(), @event.CommandName);
-    //            //    _commands[@event.RequestId] = tt;
-    //            //}
-    //        }
-
-    //        private void Handle(ConnectionSentMessagesEvent @event)
-    //        {
-    //            //            foreach (var requestId in @event.RequestIds)
-    //            //            {
-    //            //                var cmdStr = $@"
-    //            //Request:
-    //            //          NetworkDuration: {@event.NetworkDuration} Size:{@event.Length}
-    //            //    SerializationDuration: {@event.SerializationDuration}
-    //            //            TotalDuration: {@event.Duration}
-
-    //            //-----------------------------------------------------------";
-
-    //            //                var t = MiniProfiler.Current.CustomTiming("mongodb", cmdStr);
-    //            //                _commands[requestId] = t;
-    //            //            }
-    //            foreach (var requestId in @event.RequestIds)
-    //            {
-    //                if (_commands.TryGetValue(requestId, out var t))
-    //                {
-    //                    var cmdStr = $@"
-    //Request:
-    //                       Size: {@event.Length:N0} bytes 
-    //            NetworkDuration: {@event.NetworkDuration:ss\.ffff}  Speed:{@event.Length / @event.NetworkDuration.TotalMilliseconds / 1000:N3} MBps
-    //      SerializationDuration: {@event.SerializationDuration:ss\.ffff}
-    //              TotalDuration: {@event.Duration:ss\.ffff}
-
-    //-----------------------------------------------------------
-
-    //";
-    //                    t.CommandString = $"{cmdStr}{t.CommandString}";
-    //                }
-    //            }
-    //        }
-
-    //        private void Handle(CommandSucceededEvent @event)
-    //        {
-    //            //if (_commands.TryRemove(@event.RequestId, out var t))
-    //            //{
-    //            //    t.Stop();
-    //            //}
-    //        }
-
-    //        private void Handle(CommandFailedEvent @event)
-    //        {
-    //            if (_commands.TryRemove(@event.RequestId, out var t))
-    //            {
-    //                t.Errored = true;
-    //                t.Stop();
-    //            }
-    //        }
-
-    //        private void Handle(ConnectionReceivedMessageEvent @event)
-    //        {
-    //            if (_commands.TryRemove(@event.ResponseTo, out var t))
-    //            {
-    //                t.CommandString += $@"
-
-    //-----------------------------------------------------------
-
-    //Response:
-    //                       Size: {@event.Length:N0} bytes 
-    //            NetworkDuration: {@event.NetworkDuration:ss\.ffff}  Speed:{@event.Length / @event.NetworkDuration.TotalMilliseconds / 1000:N3} MBps
-    //    DeserializationDuration: {@event.DeserializationDuration:ss\.ffff}
-    //              TotalDuration: {@event.Duration:ss\.ffff}";
-
-    //                t.Stop();
-    //            }
-    //        }
-    //    }
 }
 
 
