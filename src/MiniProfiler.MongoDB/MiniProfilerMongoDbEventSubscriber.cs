@@ -6,8 +6,10 @@ using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Reflection;
 
+// ReSharper disable UnusedParameter.Local
 // ReSharper disable UnusedMember.Local
 #pragma warning disable IDE0051 // Remove unused private members
+#pragma warning disable IDE0060 // Remove unused parameter
 
 namespace MiniProfiler.MongoDB
 {
@@ -30,7 +32,10 @@ namespace MiniProfiler.MongoDB
         private void Handle(CommandStartedEvent @event)
         {
             var profiler = StackExchange.Profiling.MiniProfiler.Current.CustomTiming("mongodb", @event.Command.ToJson(), @event.CommandName);
-            _commands[@event.RequestId] = (profiler, new Stopwatch());
+            if (profiler is not null)
+            {
+                _commands[@event.RequestId] = (profiler, new Stopwatch());
+            }
         }
 
         private void Handle(ConnectionSentMessagesEvent @event)
